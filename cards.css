@@ -1,0 +1,16 @@
+body {
+    background-color: grey;
+}
+#create {
+    display: block;
+}
+div.new {
+    height: 200px; 
+    width: 30%;
+    margin: .5em;
+    border: 2px double;
+    display: inline-block;
+    background-color: teal;
+    color: whitesmoke;
+}
+.deleteButton {}
