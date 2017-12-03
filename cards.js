@@ -1,15 +1,9 @@
-// -Create an HTML page that contains a text area and a button labeled Create.
-// When the user enters in text into the text area and then clicks the create button, create a new card element in the DOM that includes it's own delete button. You decide the height/width of the card.
-// When the user clicks the Delete button, the containing card, and no other cards, should then be removed from the DOM. Not just made invisible, actually removed from the DOM.
-
-// Target Appropriate elements
 let contentsField = document.getElementById("wordInput");
 let createButton = document.getElementById("create");
 let textEntrySection = document.getElementById("allEntries");
+let allCards = document.getElementsByClassName("newCard");
 let newCard;
 let deleteBtn;
-// let allCards;
-let allCards = document.getElementsByClassName("newCard");
 let cardCollection = [];
 let buttonCollection = [];
 
@@ -19,8 +13,8 @@ function createNewCardElement () {
     console.log("listening");
     newCard = document.createElement("div");
     textEntrySection.appendChild(newCard);   
-    newCard.setAttribute("class", "newEntry" + cardCollection.length);
-    // newCard.setAttribute("class", "new");
+    newCard.setAttribute("class", "newCards");
+    newCard.setAttribute("id", "newEntry" + cardCollection.length);
     
     let contents = document.createTextNode(contentsField.value);
     console.log(contents);
@@ -35,15 +29,12 @@ function createNewCardElement () {
     buttonCollection.push(deleteBtn);
     
     deleteBtn.addEventListener("click", deleteContents);
-    // return newCard;
+    
 }
 
+
 function deleteContents (event) {
-    console.log("about to delete shit");
-    // identify current div to target and delete
-    let currentDiv = document.getElementsByClassName(deleteBtn.className);
-    console.log(currentDiv);
-    // let cardToDelete = currentBtn.parentNode
-    // console.log(cardToDelete);
-    textEntrySection.removeChild(currentDiv);
+    let currentDiv = event.currentTarget.className;
+    let cardToRemove = document.getElementById(currentDiv);
+    textEntrySection.removeChild(cardToRemove);
 }

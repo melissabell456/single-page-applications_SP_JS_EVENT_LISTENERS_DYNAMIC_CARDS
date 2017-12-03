@@ -4,7 +4,7 @@ body {
 #create {
     display: block;
 }
-div.new {
+.newCards {
     height: 200px; 
     width: 30%;
     margin: .5em;
@@ -13,4 +13,7 @@ div.new {
     background-color: teal;
     color: whitesmoke;
 }
-.deleteButton {}
+button {
+    text-align:center;
+    margin: 2em 2em;
+}
